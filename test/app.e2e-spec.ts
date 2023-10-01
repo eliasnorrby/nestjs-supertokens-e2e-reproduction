@@ -21,4 +21,11 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect('Hello World!');
   });
+
+  it('responds on /auth/signin', () => {
+    return request(app.getHttpServer())
+      .post('/auth/signin')
+      .expect(400)
+      .expect('{"message":"Missing input param: formFields"}');
+  })
 });
